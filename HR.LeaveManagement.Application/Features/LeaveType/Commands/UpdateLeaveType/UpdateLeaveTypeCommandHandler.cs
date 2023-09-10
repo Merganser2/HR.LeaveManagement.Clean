@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Application.Exceptions;
 using HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
@@ -19,14 +20,18 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
 
     public async Task<Unit> Handle(UpdateLeaveTypeCommand request, CancellationToken cancellationToken)
     {
+        // Validate incoming data
+        var validator = new UpdateLeaveTypeCommandValidator(_leaveTypeRepository);
+        var validationResult = await validator.ValidateAsync(request);
+
+        if (validationResult.Errors.Any())
+            throw new BadRequestException("Invalid Leave type", validationResult);
+
         // Convert to domain entity object
         var leaveTypeToUpdate = _mapper.Map<Domain.LeaveType>(request);
 
-        // Verify that record exists
-        if (leaveTypeToUpdate == null)
-        {
-            throw new BadRequestException("Invalid Leave Type"); //, request);
-        }
+        // Write update to database
+        await _leaveTypeRepository.UpdateAsync(leaveTypeToUpdate);
 
         return Unit.Value;
     }
