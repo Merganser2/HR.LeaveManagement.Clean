@@ -8,7 +8,6 @@ public class HrDatabaseContext : DbContext
 {
     public HrDatabaseContext(DbContextOptions<HrDatabaseContext> options) : base(options)
     {
-
     }
 
     public DbSet<LeaveType> LeaveTypes { get; set; }
