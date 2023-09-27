@@ -10,9 +10,9 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
     public UpdateLeaveTypeCommandValidator(ILeaveTypeRepository leaveTypeRepository)
 
     {
-        RuleFor(q => q)
-            .MustAsync(LeaveTypeNameUnique)
-            .WithMessage("Leave type already exists");
+        RuleFor(p => p.Id)
+           .NotNull()
+           .MustAsync(LeaveTypeMustExist);
 
         RuleFor(p => p.Name)
             .NotEmpty().WithMessage("{PropertyName} is required")
@@ -23,10 +23,6 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
             .LessThan(180).WithMessage("{PropertyName} cannot exceed 180") // TODO: Update message to max-1 if not less than or equal as expected
             .GreaterThan(1).WithMessage("{PropertyName} cannot be less than 1"); // TODO: similar; think it must be at least 2?
 
-        RuleFor(p => p.Id)
-            .NotNull()
-            .MustAsync(LeaveTypeMustExist);
-
         this._leaveTypeRepository = leaveTypeRepository;
 
     }
@@ -35,10 +31,6 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
     {
         var leaveType = await _leaveTypeRepository.GetByIdAsync(id);
         return leaveType != null;
-    }
-    private async Task<bool> LeaveTypeNameUnique(UpdateLeaveTypeCommand command, CancellationToken token)
-    {
-        return await _leaveTypeRepository.IsLeaveTypeUnique(command.Name);
     }
 }
 
