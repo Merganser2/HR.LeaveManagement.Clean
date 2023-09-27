@@ -1,6 +1,9 @@
-﻿namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation
+﻿using MediatR;
+
+namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation
 {
-    internal class CreateLeaveAllocationCommand
+    public class CreateLeaveAllocationCommand : IRequest<Unit>
     {
+        public int LeaveTypeId { get; set; }
     }
 }

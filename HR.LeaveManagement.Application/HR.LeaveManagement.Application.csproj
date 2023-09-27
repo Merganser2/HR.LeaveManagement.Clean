@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\LeaveType\Queries\SharedDTOs\" />
+    <Folder Include="Features\LeaveRequest\Queries\GetLeaveRequestList\" />
   </ItemGroup>
 
 </Project>

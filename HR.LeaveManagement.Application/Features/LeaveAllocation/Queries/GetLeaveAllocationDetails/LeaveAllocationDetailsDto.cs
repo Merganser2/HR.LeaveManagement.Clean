@@ -1,6 +1,10 @@
-﻿namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Queries.GetLeaveAllocationDetails
+﻿using AutoMapper;
+using HR.LeaveManagement.Application.Contracts.Persistence;
+using HR.LeaveManagement.Application.Shared_DTOs;
+
+namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Queries.GetLeaveAllocationDetails
 {
-    internal class LeaveAllocationDetailsDto
+    public class LeaveAllocationDetailsDto : LeaveAllocationDto
     {
     }
 }
