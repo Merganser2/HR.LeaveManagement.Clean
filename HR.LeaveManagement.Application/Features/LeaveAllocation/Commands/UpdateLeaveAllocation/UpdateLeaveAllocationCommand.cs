@@ -1,6 +1,12 @@
-﻿namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation
+﻿using MediatR;
+
+namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation
 {
-    public class UpdateLeaveAllocationCommand
+    public class UpdateLeaveAllocationCommand : IRequest<Unit> // Unit can also be omitted if nothing returned
     {
+        public int Id { get; set; }
+        public int NumberOfDays { get; set; }
+        public int LeaveTypeId { get; set; }
+        public int Period { get; set; }
     }
 }
