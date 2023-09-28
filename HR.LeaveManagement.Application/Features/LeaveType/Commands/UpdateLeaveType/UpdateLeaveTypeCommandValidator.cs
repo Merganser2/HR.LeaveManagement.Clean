@@ -20,9 +20,9 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
             .MaximumLength(70).WithMessage("{PropertyName} must be fewer than 70 characters");
 
         RuleFor(p => p.DefaultDays)
-            .LessThan(180).WithMessage("{PropertyName} cannot exceed 180") // TODO: Update message to max-1 if not less than or equal as expected
-            .GreaterThan(1).WithMessage("{PropertyName} cannot be less than 1"); // TODO: similar; think it must be at least 2?
-
+            .LessThan(181).WithMessage("{PropertyName} cannot exceed 180") 
+            .GreaterThan(0).WithMessage("{PropertyName} must be greater than zero (0)"); 
+        
         this._leaveTypeRepository = leaveTypeRepository;
 
     }
