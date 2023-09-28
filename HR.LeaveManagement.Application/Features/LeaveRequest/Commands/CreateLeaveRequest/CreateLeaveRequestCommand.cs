@@ -1,6 +1,10 @@
-﻿namespace HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CreateLeaveRequest
+﻿using HR.LeaveManagement.Application.Features.LeaveRequest.Shared;
+using MediatR;
+
+namespace HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CreateLeaveRequest
 {
-    internal class CreateLeaveRequestCommand
+    public class CreateLeaveRequestCommand : BaseLeaveRequest, IRequest<Unit>
     {
+        public string RequestComments { get; set; } = string.Empty;
     }
 }

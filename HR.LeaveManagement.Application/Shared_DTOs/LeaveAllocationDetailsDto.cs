@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using HR.LeaveManagement.Application.Contracts.Persistence;
-using HR.LeaveManagement.Application.Shared_DTOs;
 
-namespace HR.LeaveManagement.Application.Features.LeaveAllocation.Queries.GetLeaveAllocationDetails
+namespace HR.LeaveManagement.Application.Shared_DTOs
 {
     public class LeaveAllocationDetailsDto : LeaveAllocationDto
     {
