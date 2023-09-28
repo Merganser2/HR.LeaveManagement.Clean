@@ -1,7 +1,4 @@
-﻿using HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
-using HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.DeleteLeaveAllocation;
-using HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
-using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CancelLeaveRequest;
+﻿using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CancelLeaveRequest;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.ChangeLeaveRequestApprovalCommand;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.CreateLeaveRequest;
 using HR.LeaveManagement.Application.Features.LeaveRequest.Commands.DeleteLeaveRequest;
@@ -18,7 +15,7 @@ namespace HR.LeaveManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+//    [Authorize]
     public class LeaveRequestsController : ControllerBase
     {
         private readonly IMediator _mediator;
