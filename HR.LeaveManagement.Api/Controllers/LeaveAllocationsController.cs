@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HR.LeaveManagement.Api.Controllers
 {
-    public class LeaveAllocationsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LeaveAllocationsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -27,7 +29,8 @@ namespace HR.LeaveManagement.Api.Controllers
             return Ok(leaveAllocations);
         }
 
-        // GET: LeaveAllocationsController/Details/5
+        // GET api/<LeaveAllocationsController>/5
+        [HttpGet("{id}")]
         public async Task<ActionResult<LeaveAllocationDetailsDto>> Get(int id)
         {
             var leaveAllocation = await _mediator.Send(new GetLeaveAllocationDetailsQuery(id));
