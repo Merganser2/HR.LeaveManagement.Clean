@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagement.Api", "H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagement.BlazorWebAssyUI", "HR.LeaveManagement.BlazorWebAssyUI\HR.LeaveManagement.BlazorWebAssyUI.csproj", "{A25D79AF-9A6A-4B99-B872-E3EB187E668C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Application.UnitTests", "HR.LeaveManagement.Application.UnitTests\HR.LeaveManagement.Application.UnitTests.csproj", "{01C2F266-D172-4213-9F1A-B407CCE70B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagement.Application.UnitTests", "HR.LeaveManagement.Application.UnitTests\HR.LeaveManagement.Application.UnitTests.csproj", "{01C2F266-D172-4213-9F1A-B407CCE70B23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
